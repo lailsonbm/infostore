@@ -46,7 +46,9 @@ Checkout
 * Envio de e-mail
 
 Deploy no Heroku
-* Add pg gem
+* Add pg + thin gems
+* Move sqlite3 to dev
+* bundle
 * git init
 * heroku create
 * heroku push
