@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InfoStore</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">InfoStore</a>
+      <ul class="nav">
+        <li><%= link_to 'Catalog', catalog_path %></li>
+      </ul>
+      <ul class="nav pull-right">
+        <li>
+          <%= link_to cart_path do %>
+            My Cart
+            <% unless current_cart.empty? %>
+              <span class="badge"><%= current_cart.size %></span>
+            <% end -%>
+          <% end -%>
+        </li>
+        <li><%= link_to 'Checkout »', new_checkout_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" %>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:success] %>
+  </div>
+<% end -%>
+
+<% if flash[:error] %>
+  <div class="alert alert-error" %>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:error] %>
+  </div>
+<% end -%>
+
+
+<%= yield %>
+
+<footer>
+  <div class="container">
+    <small class="muted">&copy; 2012. Don't clone it, motherfucker!</small>
+  </div>
+</footer>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>

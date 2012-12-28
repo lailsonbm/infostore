@@ -1,0 +1,40 @@
+<!-- Header -->
+<header class="page-header">
+  <div class="container">
+    <h1>Catalog <small>Amazing books from PragProg!</small></h1>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <% @products.each do |product| %>
+    <div class="row product">
+      <%= form_tag cart_items_path do %>
+        <div class="span3">
+          <%= image_tag product.image %>
+        </div>
+        <div class="span9">
+          <p class="lead">
+            <%= product.name %> <br/>
+            <small><%= product.caption %></small>
+          </p>
+          <p><%= product.description %></p>
+          <div class="btn-group">
+            <% if not current_cart.has_product?(product) %>
+              <button class="btn btn-primary">
+                <%= number_to_currency product.price, unit: 'US$' %>
+              </button>
+              <button class="btn btn-primary">Add to cart</button>
+            <% else %>
+              <button class="btn">
+                <%= number_to_currency product.price, unit: 'US$' %>
+              </button>
+              <button class="btn">Add again to cart</button>
+            <% end -%>
+          </div>
+          <%= hidden_field_tag :product_id, product.id %>
+        <% end -%>
+      </div>
+    </div>
+  <% end -%>
+</div>

@@ -1,0 +1,22 @@
+<!-- Header -->
+<header class="page-header">
+  <div class="container">
+    <h1>
+      My Cart
+      <% unless @cart.empty? %>
+        <small class="pull-right">
+          <%= pluralize(@cart.size, 'item', 'items') %>
+        </small>
+      <% end -%>
+    </h1>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <% if not @cart.empty? %>
+    <%= render 'cart' %>
+  <% else %>
+    <%= render 'empty_cart' %>
+  <% end -%>
+</div>
