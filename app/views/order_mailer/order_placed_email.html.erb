@@ -1,0 +1,14 @@
+<h1>Order placed</h1>
+
+<p>Hi, <%= @order.name %>. Your order was just placed.</p>
+
+<p>Here are your items:</p>
+
+<p>
+  <% @order.order_items.each do |item| %>
+    <%= item.product.name %><br/>
+  <% end -%>
+</p>
+
+Thanks for buying with us!
+INFOSTORE

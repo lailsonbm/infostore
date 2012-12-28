@@ -52,7 +52,10 @@ Deploy no Heroku
 * git init
 * heroku create
 * heroku push
-* seed no heroku
+* heroku run rake db:migrate db:seed
 
 Back-office
 * Rails Admin
+
+SENDGRID_PASSWORD:          z2zqzc2e
+SENDGRID_USERNAME:          app10466569@heroku.com
